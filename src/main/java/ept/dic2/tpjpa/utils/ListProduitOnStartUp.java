@@ -8,34 +8,37 @@ import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
-import ept.dic2.tpjpa.entities.Produit;
-import ept.dic2.tpjpa.facades.GenericBeanFacadeProduit;
-import ept.dic2.tpjpa.facades.ProduitSessionBeanFacade;
+import ept.dic2.tpjpa.production.entities.Produit;
+import ept.dic2.tpjpa.production.facades.GenericBeanFacadeProduit;
+import ept.dic2.tpjpa.production.facades.ProduitSessionBeanFacade;
+import ept.dic2.tpjpa.vente.entities.Employe;
+import ept.dic2.tpjpa.vente.facades.GenericBeanFacadeEmploye;
 
 /**
  * Session Bean implementation class ListOnStartUp
  */
-@Singleton(mappedName = "listonstartup")
+@Singleton(mappedName = "listproduitonstartup")
 @Startup
-public class ListOnStartUp {
+public class ListProduitOnStartUp {
 	
 	@EJB
-	GenericBeanFacadeProduit beanFacade;
+	GenericBeanFacadeProduit produitBeanFacade;
+
     /**
      * Default constructor. 
      */
-    public ListOnStartUp() {
-        System.out.println("############## ListOnStartUp ##################");
+    public ListProduitOnStartUp() {
+        System.out.println("############## List Produits On StartUp ##################");
     }
     
     @PostConstruct
     public void init() {
     	System.out.println("############ AFTER CONSTRUCT ##############");
     	ArrayList<Produit> produits = new ArrayList<Produit>();
-        produits = beanFacade.findAll();
+        produits = produitBeanFacade.findAll();
         for (Iterator iterator = produits.iterator(); iterator.hasNext();) {
 			Produit produit = (Produit) iterator.next();
-			System.out.println(produit.getNom());
+//			System.out.println(produit.getNom());
 		}
     }
 

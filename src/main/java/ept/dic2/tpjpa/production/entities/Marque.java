@@ -1,4 +1,4 @@
-package ept.dic2.tpjpa.entities;
+package ept.dic2.tpjpa.production.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -6,13 +6,13 @@ import java.util.List;
 
 
 /**
- * The persistent class for the categorie database table.
+ * The persistent class for the marque database table.
  * 
  */
 @Entity
-@Table(name="categorie")
-@NamedQuery(name="Categorie.findAll", query="SELECT c FROM Categorie c")
-public class Categorie implements Serializable {
+@Table(name="marque")
+@NamedQuery(name="Marque.findAll", query="SELECT m FROM Marque m")
+public class Marque implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,10 +24,10 @@ public class Categorie implements Serializable {
 	private String nom;
 
 	//bi-directional many-to-one association to Produit
-	@OneToMany(mappedBy="categorie")
+	@OneToMany(mappedBy="marque")
 	private List<Produit> produits;
 
-	public Categorie() {
+	public Marque() {
 	}
 
 	public int getId() {
@@ -56,14 +56,14 @@ public class Categorie implements Serializable {
 
 	public Produit addProduit(Produit produit) {
 		getProduits().add(produit);
-		produit.setCategorie(this);
+		produit.setMarque(this);
 
 		return produit;
 	}
 
 	public Produit removeProduit(Produit produit) {
 		getProduits().remove(produit);
-		produit.setCategorie(null);
+		produit.setMarque(null);
 
 		return produit;
 	}

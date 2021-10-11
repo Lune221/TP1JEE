@@ -1,10 +1,10 @@
-package ept.dic2.tpjpa.facades;
+package ept.dic2.tpjpa.production.facades;
 
 import java.util.ArrayList;
 
 import javax.ejb.Remote;
 
-import ept.dic2.tpjpa.entities.Produit;
+import ept.dic2.tpjpa.production.entities.Produit;
 
 @Remote
 public interface GenericBeanFacadeProduit{

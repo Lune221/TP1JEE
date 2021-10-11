@@ -3,12 +3,11 @@
 	<persistence-unit name="TPJPAWEB-production" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/PRODUCTION</jta-data-source>
-		<class>ept.dic2.tpjpa.entities.Categorie</class>
-		<class>ept.dic2.tpjpa.entities.Marque</class>
-		<class>ept.dic2.tpjpa.entities.Produit</class>
-		<class>ept.dic2.tpjpa.entities.Stock</class>
-		<class>ept.dic2.tpjpa.entities.StockPK</class>
-		
+		<class>ept.dic2.tpjpa.production.entities.Categorie</class>
+		<class>ept.dic2.tpjpa.production.entities.Marque</class>
+		<class>ept.dic2.tpjpa.production.entities.Produit</class>
+		<class>ept.dic2.tpjpa.production.entities.Stock</class>
+		<class>ept.dic2.tpjpa.production.entities.StockPK</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
@@ -20,6 +19,29 @@
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.connection.characterEncoding" value="utf8" />
+			<property name="hibernate.connection.useUnicode" value="true" />
+            <property name="hibernate.connection.charSet" value="UTF-8" />
+		</properties>
+	</persistence-unit>
+	
+	<!-- NEW PU -->
+	<persistence-unit name="TPJPAWEB-vente" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/VENTE</jta-data-source>
+		<class>ept.dic2.tpjpa.vente.entities.ArticleCommande</class>
+		<class>ept.dic2.tpjpa.vente.entities.ArticleCommandePK</class>
+		<class>ept.dic2.tpjpa.vente.entities.Client</class>
+		<class>ept.dic2.tpjpa.vente.entities.Commande</class>
+		<class>ept.dic2.tpjpa.vente.entities.Employe</class>
+		<class>ept.dic2.tpjpa.vente.entities.Magasin</class>
+		
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		
+		<properties>
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.format_sql" value="true"/>
 			<property name="hibernate.connection.characterEncoding" value="utf8" />
 			<property name="hibernate.connection.useUnicode" value="true" />
             <property name="hibernate.connection.charSet" value="UTF-8" />

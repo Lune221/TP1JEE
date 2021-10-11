@@ -1,4 +1,4 @@
-package ept.dic2.tpjpa.entities;
+package ept.dic2.tpjpa.production.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
