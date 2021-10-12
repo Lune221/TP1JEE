@@ -9,14 +9,16 @@ import javax.persistence.*;
  */
 @Embeddable
 public class Adresse implements Serializable {
-
+	private static final long serialVersionUID = 1L;
 
 	public Adresse() {
 		super();
 	}
 	
 	private String adresse;
-	
+	private String codeZip;
+	private String etat;
+	private String ville;
 	
 	/**
 	 * @return the adresse
@@ -32,7 +34,47 @@ public class Adresse implements Serializable {
 		this.adresse = adresse;
 	}
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * @return the codeZip
+	 */
+	public String getCodeZip() {
+		return codeZip;
+	}
 
-   
+	/**
+	 * @param codeZip the codeZip to set
+	 */
+	public void setCodeZip(String codeZip) {
+		this.codeZip = codeZip;
+	}
+
+	/**
+	 * @return the etat
+	 */
+	public String getEtat() {
+		return etat;
+	}
+
+	/**
+	 * @param etat the etat to set
+	 */
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+
+	/**
+	 * @return the ville
+	 */
+	public String getVille() {
+		return ville;
+	}
+
+	/**
+	 * @param ville the ville to set
+	 */
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	
 }

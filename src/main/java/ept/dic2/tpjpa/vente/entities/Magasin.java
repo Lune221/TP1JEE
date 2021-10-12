@@ -22,17 +22,17 @@ public class Magasin implements Serializable {
 
 	
 	@Embedded
-	@AttributeOverride(name = "adresse", column = @Column(name="ADRESSE"))
+	@AttributeOverrides({
+		@AttributeOverride(name="adresse", column = @Column(name="ADRESSE")),
+		@AttributeOverride(name = "codeZip", column = @Column(name="CODE_ZIP")),
+		@AttributeOverride(name = "etat", column = @Column(name="ETAT")),
+		@AttributeOverride(name = "ville", column = @Column(name="VILLE"))
+	})
 	private Adresse adresse;
 
-	@Column(name="CODE_ZIP")
-	private String codeZip;
 
 	@Column(name="EMAIL")
 	private String email;
-
-	@Column(name="ETAT")
-	private String etat;
 
 	@Column(name="NOM")
 	private String nom;
@@ -40,8 +40,6 @@ public class Magasin implements Serializable {
 	@Column(name="TELEPHONE")
 	private String telephone;
 
-	@Column(name="VILLE")
-	private String ville;
 
 	//bi-directional many-to-one association to Commande
 	@OneToMany(mappedBy="magasin")
@@ -70,28 +68,12 @@ public class Magasin implements Serializable {
 		this.adresse = adresse;
 	}
 
-	public String getCodeZip() {
-		return this.codeZip;
-	}
-
-	public void setCodeZip(String codeZip) {
-		this.codeZip = codeZip;
-	}
-
 	public String getEmail() {
 		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getEtat() {
-		return this.etat;
-	}
-
-	public void setEtat(String etat) {
-		this.etat = etat;
 	}
 
 	public String getNom() {
@@ -108,14 +90,6 @@ public class Magasin implements Serializable {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
-	}
-
-	public String getVille() {
-		return this.ville;
-	}
-
-	public void setVille(String ville) {
-		this.ville = ville;
 	}
 
 	public List<Commande> getCommandes() {

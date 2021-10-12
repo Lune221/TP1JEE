@@ -38,7 +38,7 @@ public class ListProduitOnStartUp {
         produits = produitBeanFacade.findAll();
         for (Iterator iterator = produits.iterator(); iterator.hasNext();) {
 			Produit produit = (Produit) iterator.next();
-//			System.out.println(produit.getNom());
+			System.out.println(produit.getNom());
 		}
     }
 

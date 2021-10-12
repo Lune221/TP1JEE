@@ -15,18 +15,14 @@ public class Client extends Personne {
 	private static final long serialVersionUID = 1L;
 
 	@Embedded
-	@AttributeOverride(name="adresse", column = @Column(name="ADRESSE"))
+	@AttributeOverrides({
+		@AttributeOverride(name="adresse", column = @Column(name="ADRESSE")),
+		@AttributeOverride(name = "codeZip", column = @Column(name="CODE_ZIP")),
+		@AttributeOverride(name = "etat", column = @Column(name="ETAT")),
+		@AttributeOverride(name = "ville", column = @Column(name="VILLE"))
+	})
 	private Adresse adresse;
 
-	@Column(name="CODE_ZIP")
-	private String codeZip;
-
-
-	@Column(name="ETAT")
-	private String etat;
-
-	@Column(name="VILLE")
-	private String ville;
 
 	//bi-directional many-to-one association to Commande
 	@OneToMany(mappedBy="client")
@@ -41,30 +37,6 @@ public class Client extends Personne {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
-	}
-
-	public String getCodeZip() {
-		return this.codeZip;
-	}
-
-	public void setCodeZip(String codeZip) {
-		this.codeZip = codeZip;
-	}
-
-	public String getEtat() {
-		return this.etat;
-	}
-
-	public void setEtat(String etat) {
-		this.etat = etat;
-	}
-
-	public String getVille() {
-		return this.ville;
-	}
-
-	public void setVille(String ville) {
-		this.ville = ville;
 	}
 
 	public List<Commande> getCommandes() {
